@@ -52,7 +52,7 @@ export const Trending = () => {
       <section className=" mt-10">
         <div className="  min-h-[300px] w-[90%] max-w-[1500px] mx-auto relative space-y-5">
           <Link
-            to={"/library/movies/trending"}
+            to={"/movies"}
             className=" block w-fit text-3xl text-white font-jost font-bold"
           >
             Trending Movies
@@ -73,7 +73,7 @@ export const Trending = () => {
       <section className=" mt-10">
         <div className="  min-h-[300px] w-[90%] max-w-[1500px] mx-auto relative space-y-5">
           <Link
-            to={"/library/tv_shows/trending"}
+            to={"/tv_shows"}
             className=" block w-fit text-3xl text-white font-jost font-bold"
           >
             Trending TV Shows

@@ -3,6 +3,7 @@ import cors from "cors";
 import { server } from "./src/mocks/node.js";
 import mongoose from "mongoose";
 import trendingRouter from "./src/routes/trending.route.js";
+import moviesRouter from "./src/routes/movies.route.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -13,6 +14,7 @@ app.use(cors());
 
 // Routes
 app.use("/trending", trendingRouter);
+app.use("/movies", moviesRouter);
 
 // Server
 app.listen(PORT, () => {
