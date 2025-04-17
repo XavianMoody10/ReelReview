@@ -6,6 +6,10 @@ import nowPlayingMoviesMockdata from "./mockdata/nowPlayingMovies.mockdata.js";
 import popularMoviesMockdata from "./mockdata/popularMovies.mockdata.js";
 import topRatedMoviesMockdata from "./mockdata/topRatedMovies.mockdata.js";
 import upcomingMoviesMockdata from "./mockdata/upcomingMovies.mockdata.js";
+import airingTodayMockdata from "./mockdata/airingToday.mockdata.js";
+import onTheAirTVShowsMockdata from "./mockdata/onTheAirTVShows.mockdata.js";
+import popularTVShowsMockdata from "./mockdata/popularTVShows.mockdata.js";
+import topRatedTVShowsMockdata from "./mockdata/topRatedTVShows.mockdata.js";
 
 export const handlers = [
   http.get("https://api.themoviedb.org/3/trending/all/week", async () => {
@@ -96,4 +100,66 @@ export const handlers = [
       // return HttpResponse.error();
     }
   ),
+
+  http.get(
+    "https://api.themoviedb.org/3/tv/airing_today",
+    async ({ request }) => {
+      const url = new URL(request.url);
+
+      const page = url.searchParams.get("page");
+
+      const results = airingTodayMockdata.find((m) => m.page == page);
+
+      await delay(3000);
+
+      return HttpResponse.json(results);
+      // return HttpResponse.text("Failed getting now playing movies", { status: 400 });
+      // return HttpResponse.error();
+    }
+  ),
+
+  http.get(
+    "https://api.themoviedb.org/3/tv/on_the_air",
+    async ({ request }) => {
+      const url = new URL(request.url);
+
+      const page = url.searchParams.get("page");
+
+      const results = onTheAirTVShowsMockdata.find((m) => m.page == page);
+
+      await delay(3000);
+
+      return HttpResponse.json(results);
+      // return HttpResponse.text("Failed getting now playing movies", { status: 400 });
+      // return HttpResponse.error();
+    }
+  ),
+
+  http.get("https://api.themoviedb.org/3/tv/popular", async ({ request }) => {
+    const url = new URL(request.url);
+
+    const page = url.searchParams.get("page");
+
+    const results = popularTVShowsMockdata.find((m) => m.page == page);
+
+    await delay(3000);
+
+    return HttpResponse.json(results);
+    // return HttpResponse.text("Failed getting now playing movies", { status: 400 });
+    // return HttpResponse.error();
+  }),
+
+  http.get("https://api.themoviedb.org/3/tv/top_rated", async ({ request }) => {
+    const url = new URL(request.url);
+
+    const page = url.searchParams.get("page");
+
+    const results = topRatedTVShowsMockdata.find((m) => m.page == page);
+
+    await delay(3000);
+
+    return HttpResponse.json(results);
+    // return HttpResponse.text("Failed getting now playing movies", { status: 400 });
+    // return HttpResponse.error();
+  }),
 ];

@@ -4,6 +4,7 @@ import { server } from "./src/mocks/node.js";
 import mongoose from "mongoose";
 import trendingRouter from "./src/routes/trending.route.js";
 import moviesRouter from "./src/routes/movies.route.js";
+import tvShowsRouter from "./src/routes/tvShows.route.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -15,6 +16,7 @@ app.use(cors());
 // Routes
 app.use("/trending", trendingRouter);
 app.use("/movies", moviesRouter);
+app.use("/tv_shows", tvShowsRouter);
 
 // Server
 app.listen(PORT, () => {

@@ -49,7 +49,11 @@ export const Movies = () => {
           />
         </div>
 
-        <LoadingOverlay isLoading={moviesQuery.isLoading} zIndex={20} />
+        <LoadingOverlay
+          isLoading={moviesQuery.isLoading}
+          delay={0}
+          zIndex={20}
+        />
 
         {moviesQuery.error && (
           <ErrorMessageOverlay message={moviesQuery.error.message} />
